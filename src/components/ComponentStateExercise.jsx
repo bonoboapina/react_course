@@ -17,14 +17,12 @@ export default class ComponentStateExercise extends React.Component {
   state = { text: 'CATURDAY', imageName: 'CATURDAY', };
 
   onTextChanged = (event) => {
-    /* 1. make event.target.value upper case 'event.target.value.toUpperCase()'
-    * and save it to a variable
-    * 2. check if variable equals some of the IMAGES names,
-    * and if it does, change states 'imageName' to match it
-    * 3. set states text to match the upper cased value
-    * HINT: you can check if IMAGES has the matching property
-    * in a if statement by: 'if(IMAGES[upperCasedValue]) {...}'*/
-
+    const text = event.target.value.toUpperCase();
+    if (IMAGES[text]) {
+      this.setState({ text, imageName: text, });
+    } else {
+      this.setState({ text, });
+    }
   }
 
   render() {
